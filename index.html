@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Website</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    .tab-button {
+      padding: 10px 15px;
+      cursor: pointer;
+      border: none;
+      background: #eee;
+      margin-right: 5px;
+      border-radius: 5px;
+    }
+
+    .tab-button.active {
+      background: #333;
+      color: white;
+    }
+
+    .tab-content {
+      display: none;
+      margin-top: 20px;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>My Website</h1>
+
+<!-- Tabs -->
+<div>
+  <button class="tab-button active" onclick="openTab(event, 'overview')">
+    Overview
+  </button>
+
+  <button class="tab-button" onclick="openTab(event, 'scientific')">
+    Scientific Details
+  </button>
+</div>
+
+<!-- Tab Content -->
+<div id="overview" class="tab-content active">
+  <h2>Overview</h2>
+  <p>This is the overview section.</p>
+</div>
+
+<div id="scientific" class="tab-content">
+  <h2>Scientific Details</h2>
+  <p>This is the scientific details section.</p>
+</div>
+
+<script>
+function openTab(evt, tabName) {
+  let contents = document.querySelectorAll(".tab-content");
+  let buttons = document.querySelectorAll(".tab-button");
+
+  contents.forEach(c => c.classList.remove("active"));
+  buttons.forEach(b => b.classList.remove("active"));
+
+  document.getElementById(tabName).classList.add("active");
+  evt.currentTarget.classList.add("active");
+}
+</script>
+
+</body>
+</html>
